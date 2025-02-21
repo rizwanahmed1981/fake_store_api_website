@@ -10,15 +10,19 @@ const ProductProvider = ({ children }) => {
   // fetch products
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await fetch();
-    }
+      const response = await fetch('https://fakestoreapi.com/products');
+      const data = await response.json();
+    setProducts(data);
+    };
+
+    fetchProducts();
   }, []);
-  
+
   return (
-    <ProductContext.Provider>
+    <ProductContext.Provider value={{products}}>
       {children}
     </ProductContext.Provider>
   )
 }
 
-export default ProductContext
+export default ProductProvider
