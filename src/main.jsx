@@ -6,13 +6,17 @@ import App from "./App.jsx";
 import ProductProvider from "./contexts/ProductContext.jsx";
 // sidebar Provider
 import SidebarProvider from "./contexts/SidebarContext.jsx";
+// cart provider
+import CartProvider from "./contexts/CartContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <SidebarProvider>
-    <ProductProvider>
-      <StrictMode>
-        <App />
-      </StrictMode>
-    </ProductProvider>
+    <CartProvider>
+      <ProductProvider>
+        <StrictMode>
+          <App />
+        </StrictMode>
+      </ProductProvider>
+    </CartProvider>
   </SidebarProvider>
 );
